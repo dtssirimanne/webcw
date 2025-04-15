@@ -1,0 +1,278 @@
+/*Designing the content.html*/
+
+body{
+    margin: 0;
+    background-image: linear-gradient(to right, rgba(32, 162, 243, 0.545),rgb(242, 242, 242),rgba(32, 162, 243, 0.547));
+}
+
+.starting-image img{/*Styling starting image*/
+    margin-top: 200px;
+    height: 350px;
+    width: 100%;
+    filter: brightness(50%);
+
+}
+
+.topic{/*Styling the topic*/
+    position: absolute;
+    top: 50%; /* Position text in the middle vertically */
+    left: 50%; /* Position text in the middle horizontally */
+    transform: translate(-50%, -50%); /* Center text precisely */
+    font-size: 36px; /* Adjust text size as needed */
+    font-weight: bold; /* Adjust font weight as needed */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow to text */
+    text-align: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+    margin-bottom: 5%;
+    color: #04fafa;
+}
+
+.content {/*Styling the content*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+fieldset{/*Styling the fieldset*/
+    height: 313px;
+    margin: 20px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+/*Styling the content images to the left side*/
+.content img {
+    max-width: 30%; 
+    height: 310px;
+    margin-right: 20px;
+    border-radius: 10px;
+
+}
+
+.content p {
+    flex: 1;
+    margin-left: 20px;
+    font-size: 20px;
+    text-align: justify;
+    margin-right: 10px;
+    line-height: 35px;
+}
+
+/*Styling the content images to the left side*/
+.content-right{
+    display: flex;
+    flex-direction: row-reverse; 
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+
+.content-right img{
+    max-width: 30%; 
+    height: 310px;
+    border-radius: 10px;
+
+}
+
+.content-right p{
+    float: left;
+    margin-left: 20px;
+    font-size: 20px;
+    text-align: justify;
+    margin-right: 10px;
+    line-height: 35px;
+
+}
+
+/*Styling navigation bar*/
+.navbar{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 75px;
+    line-height: 75px;
+    position: fixed;
+    background-image: linear-gradient(#00BFFF, #4169E1);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 2;
+
+}
+
+nav ul{
+    float: right;
+}
+
+nav li{
+    display: inline-block;
+    list-style: none;
+
+}
+
+nav li a{
+    font-size: 18px;
+    text-transform: uppercase;
+    color: white;
+    text-decoration:  none;
+    padding: 0px 30px;
+}
+
+.navbar ul li a.active,
+.navbar ul li a:hover{
+    color: #04fafa;
+    font-weight: bold;
+
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*Styling footer*/
+footer{
+    background-image: linear-gradient(#00BFFF, #4169E1);
+}    
+
+.footerContainer {
+    width: 100%;
+    padding: 70px 30px 20px;
+}
+
+.socialIcons{
+    display: flex;
+    justify-content: center;
+}
+
+.socialIcons a {
+    text-decoration: none;
+    padding: 10px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 50% ;
+}
+
+.socialIcons a i {
+    font-size: 2em;
+    color: black;
+    opacity: 0.9;
+}
+
+.socialIcons a:hover{
+    background-color: #111;
+    transition: 0.5s;
+}
+
+.socialIcons a:hover i {
+    color: white;
+    transition: 0.5s;
+
+}
+
+.footernav{
+    margin: 30px 0;
+
+}
+
+.footernav ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+
+}
+
+.footernav ul li a{
+    color: white;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 20px;
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+.footernav ul li a:hover{
+    opacity: 3;
+    color: rgba(41, 39, 39, 0.889);
+    transition: 0.5s;
+}
+
+.copywrite{
+    background-color:#000 ;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.copywrite p{
+    color: white;
+
+}
+
+.designer{
+
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+
+}
+
+
+
+
+.logo{
+    height: 90px;
+    width: 120px;
+}
+
+.navbar2 {
+    width: 100%;
+    height: 75px;
+    line-height: 75px;
+    position: fixed;
+    margin-top: 75px;
+    background-color: rgb(39, 105, 143);
+    position: fixed;
+    z-index: 2;
+    justify-content: space-between;
+    padding: 10px; /* Padding around content */
+}
+
+.navbar3 {
+    width: 100%;
+    height: 75px;
+    line-height: 75px;
+    position: fixed;
+    margin-top: 150px;
+    background-color: rgb(109,165,197);
+    position: fixed;
+    z-index: 2;
+    justify-content: space-between;
+    padding: 10px; /* Padding around content */
+}
+.navbar3 ul {
+    text-align: center;
+    list-style-type: none; /* Remove bullets from list */
+    padding: 0px; /* Remove default padding */
+}
+
+.navbar3 ul li {
+    
+    display: inline; /* Display list items horizontally */
+    margin-right: 160px; /* Add space between list items */
+}
+
+.navbar3 ul li a {
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif; /* Remove underline from links */
+    color: rgb(21, 6, 90); /* Link text color */
+}
+
+.navbar3 ul li a:hover {
+    color: #094650; /* Change link text color on hover */
+}

@@ -1,0 +1,269 @@
+body{
+    font-family: Arial,sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-image: url(ocean.jpg);
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+nav {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    line-height: 75px;
+    padding: 0px 50px;
+    position: fixed;
+    background-image: linear-gradient(#00BFFF, #4169E1);
+}
+
+#life{
+    font-size: 36px ;
+    color: aliceblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.navbar{
+    
+    width: 100%;
+    background-color: rgb(33, 33, 33);
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 2;
+}
+
+nav ul{
+    float: right;
+}
+
+nav li{
+    display: inline-block;
+    list-style: none;
+
+}
+
+nav li a{
+    font-size: 18px;
+    text-transform: uppercase;
+    color: white;
+    text-decoration:  none;
+    padding: 0px 30px;
+}
+
+.navbar ul li a.active,
+.navbar ul li a:hover{
+    color: #04fafa;
+    font-weight: bold;
+
+}
+
+.logo{
+    height: 90px;
+    width: 120px;
+}
+
+.btn {
+    display: none; 
+    color: #fff;
+    position: relative;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    right: 100%;
+}
+
+.navbar ul li {
+    margin-right: 20px;
+}
+
+.navbar ul li:last-child {
+    margin-right: 0; /* Remove margin from the last li */
+}
+
+.btn i {
+    cursor: pointer;
+}
+
+.navbar-links {
+    display: none;
+}
+
+.navbar-links.active {
+    display: block;
+}
+
+fieldset{
+    margin-top: 100px;
+    width: 50px;
+    margin-left: 380px;
+    padding-left: 0%;
+    background-color: rgb(231, 228, 228);
+    box-shadow: black;
+    border: none;
+    text-align: justify;
+    height: 1100px;
+    border-radius: 10px;
+}
+
+h1{
+    color: 	#2E8B57;
+    text-align: center;
+}
+
+h3{
+    color: #B22222;
+    text-align: center;
+}
+
+form {
+    padding-left: 85px;
+    display: flex;
+    flex-direction: column;
+    width: 650px;
+    margin: 0 auto;
+}
+
+form input{
+    border: 0;
+    margin: 5px 0;
+    padding:10px;
+    outline:none;
+    background: rgb(145, 198, 228);
+    font-size: 16px;
+}
+
+form button{
+    background-color: #1bab52;
+    font-size: 16px;
+    color: white;
+    outline: none;
+    padding:15px;
+    border: 0;
+    border-radius:5px; 
+    width: 100px;   
+}
+
+.feedback_form span{
+    font-size: 14px;
+    color: red;
+    position: relative;
+}
+
+.input-control.error input{
+    border-color: #27bfad;
+}
+
+.rate-class label{
+    padding: 5px
+}
+
+.submit-button {
+    width: 110px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #5DBB63;
+    margin-left: 190px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+#preview {
+    width: 110px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #5DBB63;
+    margin-left: 70px;
+    margin-bottom: -55px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#reset {
+    width: 110px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #5DBB63;
+    margin-left: 310px;
+    margin-top: -54px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+@media screen and (max-width: 920px) {
+
+    .btn {
+        display: block; /* Show the buttons for smaller screens */
+    }
+
+    .navbar ul {
+        display: none; /* Hide the menu by default on smaller screens */
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 50vh;
+        position: fixed;
+    }
+
+    .navbar ul.active {
+        display: flex; /* Show the menu when active */
+    }
+
+    .navbar ul li {
+        margin: 1rem 2rem;
+        border-bottom: 1px solid #fff;
+        width: 100%;
+        padding-bottom: 1rem;
+    }
+
+}
+
+@media screen and (max-width: 920px) {
+
+    .navbar ul {
+        display: none; /* Hide the menu by default on smaller screens */
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar ul.active {
+        display: flex; /* Show the menu when active */
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+
+    .close-btn{
+        position: absolute;
+        top: 0px;
+        margin: 25px;
+    }
+
+}

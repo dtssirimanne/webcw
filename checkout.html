@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <style>
+        /*Styling the form*/
+        body {
+            background-image: url('checkout-background.jpg');
+        }
+        fieldset {
+            position: fixed;
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+            width: 800px;
+            height: 630px;
+        }
+        #t2 {  
+            float: left;
+            padding-top: 0;
+            margin: 0;
+            padding-left: 110px;
+            font-size: 30px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: bold;
+            display: inline;
+        }
+        label {
+            float: left;
+            margin-top: 10px;
+            margin-left: 5px;
+            font-size: 18px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        #t1 {  
+            float: left;
+            padding-top: 0;
+            margin: 0;
+            font-size: 30px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: bold;
+            display: inline;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        input[type="email"],
+        input[type="tel"] {
+            padding-top: 5px;
+            margin-top: 10px;
+            margin-left: 5px;
+            width: calc(90% - 20px);
+            height: 30px;
+            margin-right: 0.5em;
+            padding-top: 0.2em;
+            border-radius: 5px;
+        }
+        input[type="date"] {
+            margin-left: 5px;
+            margin-top: 15px;
+            display: table;
+            float: left;
+            width: calc(63% - 10px);
+            height: 30px;
+            margin-right: 0.5em;
+            padding-top: 0.2em;
+        }
+        img {
+            width: 380px;
+            height: 200px;
+        }
+        .column {
+            width: 50%;
+            float: left;
+            line-height: 20px;
+            padding-top: 10px;
+        }
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        #both {
+            margin-top: 10px;
+            width: calc(162px - 10px);
+            height: 30px;
+            margin-right: 35px;
+            padding-top: 0.2em;
+        }
+        #proceed {
+            border-radius: 5px;
+            margin-top: 5px;
+            margin-left: 40px;
+            margin-right: 43px;
+            width: 35%;
+            height: 45px;
+            background-color: 	#191970;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 20px;
+            border: none;
+            float: inline-end;
+            cursor: pointer;
+        }    
+        #back {
+            border-radius: 5px;
+            margin-top: 5px;
+            margin-left: 5px;
+            width: 35%;
+            height: 45px;
+            background-color: 	#191970;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 20px;
+            border: none;
+            float: inline-start;
+            cursor: pointer;
+        }
+        #back:hover {
+            text-decoration: none;
+            color: white;
+        }
+        .modal{
+            width:400px;
+            height: 400px;
+            background: #fff;
+            border-radius: 6px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%,-50%)scale(0.1);
+            text-align: center;
+            padding: 0 30px 30px;
+            color: #333;
+            visibility: hidden;
+            transition: transform 0.4s, top 0.4s;
+        }
+        .open-modal{
+            visibility: visible;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .modal img{
+            width: 100px;
+            margin-top: -50px;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .modal h2{
+            font-size: 38px;
+            font-weight: 500;
+            margin: 30px 0 10px;    
+        }
+        .modal button{
+            width: 100%;
+            margin-top: 50px;
+            padding: 10px 0;
+            background: #191970;
+            color: white;
+            border: 0;
+            outline: none;
+            font-size: 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <!--Calling the validate function-->
+    <form id="checkout-form" onsubmit="return validateForm()">
+
+        <!--Using a fieldset to create the form-->
+        <fieldset>
+            <p id="t1">CUSTOMER DETAILS</p>
+            <p id="t2">PAYMENT DETAILS</p>
+
+            <!--All inputs fields and it's labels - 1 coloumn-->
+            <div class="column">
+                <label>Name :</label><br>
+                <input type="text" id="name" name="name" required><br>
+
+                <label>Address :</label><br>
+                <input type="text" id="address" name="adress" required><br>
+
+                <label>Contact Number :</label><br>
+                <input type="tel" id="c_no" name="c_no" required><br>
+
+                <label>Email Address :</label><br>
+                <input type="email" id="email" name="email"><br>
+
+                <label >Country: :</label><br>
+                <input type="text" id="country" name="country" required><br>
+
+                <label >Province :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="padding-left: 126px;" >District:</label><br>
+
+                <div class="province_district"style="float:left">
+                    <input type="text" id="both" name="province" required>
+                    <input type="text" id="both" name="district" style="margin:0;"required>
+                </div><br>
+                
+                <label>Postal Code :</label><br>
+                <input type="number" id="postal" name="postal" required>
+            </div>
+            <!--2nd column-->
+            <div class="column">
+                <label>Accepted Payment Methods :</label>
+                <img src="payment_methods.jpg" alt="payment_methods"><br>
+
+                <label>Card Number :</label><br>
+                <input type="number" id="card_number" name="card_number" required><br>
+
+                <label>Cardholder Name :</label><br>
+                <input type="text" id="owner" name="owner" required><br>
+
+                <label style="padding-top: 30px;">Expiry date :</label><br>
+                <input type="date" id="exp_date" name="exp_date" required><br><br><br>
+
+                <label>CCV :</label><br>
+                <input type="text" id="ccy" name="ccy" required>
+            </div>
+
+            <!--Proceed with pay button-->
+            <div class="button-process">
+                <button id="proceed">Proceed With The Pay</button>
+            </div> 
+            <!--Back button-->   
+            <button id="back" onclick="goToPage('shop.html');return false;">Back</button>
+        
+        </fieldset>
+    </form>
+
+    <!--Javascript files-->
+    <div class="clearfix"></div>
+    <script>
+        //Validating the form
+        function validateForm() {
+            var form = document.getElementById("checkout-form");
+            var inputs = form.querySelectorAll("input[required], select[required]");
+            var isValid = true;
+
+            inputs.forEach(function(input) {
+                if (!input.checkValidity()) {
+                    input.classList.add("invalid");
+                    isValid = false;
+                } else {
+                    input.classList.remove("invalid");
+                }
+            });
+
+            if (isValid) {
+                alert("You successfully made the purchase.Please click 'Back' to go to the shop");
+                goToPage('shop.html');
+            } else {
+                alert("Please fill in all required fields correctly.");
+            }
+
+            return isValid;
+        }
+
+        //To call another html file        
+        function goToPage(url) {
+            window.location.href = url;
+        }
+        
+    </script>    
+</body>
+</html>

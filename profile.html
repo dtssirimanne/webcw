@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile </title>
+    <link rel="stylesheet" href="styles3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      
+    
+</head>
+<body>
+
+    <nav class="navbar">                  
+        <img src="logo.jpg" class="logo" alt="logo">
+        <p style="color: aliceblue; font-size: 36px; margin-left: 0%;">Marine<span id="life"><i>Life</i></span></p>
+        
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+            <li><a href="team.html">About us</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+		<div id="start-button-container">
+            <button onclick="startProfileBuilding()">Start</button>
+        </div>
+        <div id="progress-bar">
+            <!-- Progress bar will be dynamically updated here -->
+            <div class="progress" style="width: 0%"></div>
+        </div>
+		<div id="progress-status">
+        <!-- Progress status will be dynamically updated here -->
+		</div>
+        <div id="profile-form">
+            <!-- Prompt and input field will be dynamically updated here -->
+        </div>
+        <div id="user-inputs">
+            <!-- User inputs will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        const prompts = [
+            // Personal Details
+            [
+                "What is your Name?",
+                "What is your Surname?",
+                "Your Age",
+                "What is your Gender?",
+                "What is your Address?"
+            ],
+            // Volunteering Tasks
+            [
+                "What brings you to this cause?",
+                "Are you agree with the terms?",
+                "What is your Task?",
+                "Place",
+                "Assignment Type"
+            ],
+            // Qualifications
+            [
+                "Area of Study",
+                "Highest degree",
+                "Do you hold any professional certifications relevant to marine research,or related activities?",
+                "Are you interested in marine-related activities?",
+                "Country"
+            ],
+            // Availability & Contact
+            [
+                "Availability",
+                "Surname",
+                "Contact Number",
+                "Email"
+            ]
+        ];
+
+        const totalParts = prompts.length;
+        let currentPart = 0;
+        let currentStep = 0;
+        let userProfile = []; // Array to store user input information
+		
+		function startProfileBuilding() {
+            document.getElementById('start-button-container').style.display = 'none';
+            document.getElementById('progress-bar').style.display = 'block';
+            document.getElementById('progress-status').style.display = 'block';
+            document.getElementById('profile-form').style.display = 'block';
+            displayPrompt();
+        }
+
+        function displayPrompt() {
+            const form = document.getElementById('profile-form');
+            form.innerHTML = `
+                <p>Part ${currentPart + 1} of ${totalParts}</p>
+                <p>${prompts[currentPart][currentStep]}</p>
+                <input type="text" id="user-input">
+                <button onclick="nextStep()">Next</button>
+                <button onclick="skipStep()">Skip</button>
+                <div id="output"></div> <!-- Output container -->
+            `;
+			document.getElementById('user-input').addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    nextStep();
+                }
+            });
+        }
+
+        function updateProgress() {
+            const progressBar = document.querySelector('#progress-bar .progress');
+            const progressWidth = ((currentPart * 4 + currentStep) / (totalParts * 4)) * 100;
+            progressBar.style.width = `${progressWidth}%`;
+        }
+
+        function nextStep() {
+            const userInput = document.getElementById('user-input').value.trim();
+            if (userInput !== '') {
+                // Output user input
+                const outputContainer = document.getElementById('output');
+                outputContainer.innerHTML += `<p><strong>${prompts[currentPart][currentStep]}</strong>: ${userInput}</p>`;
+                
+                // Store user input
+                userProfile.push(userInput);
+
+                currentStep++;
+                if (currentStep < 4) { // There are 4 questions for each part
+                    updateProgress();
+                    displayPrompt();
+                } else {
+                    // Move to the next part
+                    currentPart++;
+                    currentStep = 0;
+                    if (currentPart < totalParts) {
+                        updateProgress();
+                        displayPrompt();
+                    } else {
+                        // Profile completion
+                        document.getElementById('profile-form').innerHTML = `<p>Profile completed!</p>`;
+                        updateProgress();
+                        displayUserInputs();
+                    }
+                }
+            } else {
+                alert('Please provide valid information.');
+            }
+        }
+
+        function skipStep() {
+            // Output a message indicating that the user skipped the question
+            const outputContainer = document.getElementById('output');
+            outputContainer.innerHTML += `<p><strong>${prompts[currentPart][currentStep]}</strong>: Skipped</p>`;
+            
+            // Store a placeholder for skipped question
+            userProfile.push('Skipped');
+            
+            currentStep++;
+            if (currentStep < 4) { // There are 4 questions for each part
+                updateProgress();
+                displayPrompt();
+            } else {
+                // Move to the next part
+                currentPart++;
+                currentStep = 0;
+                if (currentPart < totalParts) {
+                    updateProgress();
+                    displayPrompt();
+                } else {
+                    // Profile completion
+                    document.getElementById('profile-form').innerHTML = `<p>Profile completed!</p>`;
+                    updateProgress();
+                    displayUserInputs();
+                }
+            }
+        }
+
+        function displayUserInputs() {
+            const userInputContainer = document.getElementById('user-inputs');
+            userInputContainer.innerHTML = "<h2>User Profile Information:</h2>";
+            userProfile.forEach((input, index) => {
+                userInputContainer.innerHTML += `<p><strong>${prompts[Math.floor(index / 5)][index % 5]}</strong>: ${input}</p>`;
+            });
+        }
+
+        displayPrompt();
+
+    </script>
+
+   
+
+    
+</body>
+</html>

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+
+    <!--Navigation Bar-->
+
+    <nav class="navbar">                  
+        <img src="logo_cloth2.png" alt="logo" class="logo">
+        <p style="color: aliceblue; font-size: 36px; margin-left: 0%;margin-top: 2px;" >Marine<span id="life"><i>Life</i></span></p>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+            <li><a href="team.html">About us</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </nav>
+
+    <!--cart designing-->
+    <!--Cart icon and the Value-->
+
+    <div class="cart-icon" onclick="toggleCart()">
+        <img src="cart1.png" alt="Cart">
+        <span id="cart-count">0</span>
+    </div>
+
+    <!--Cart Window Making-->
+    <div class="cart-overlay" id="cart-overlay">
+        <div class="cart">
+            <div class="cart-header">
+                <h2>Shopping Cart</h2>
+                <button class="close-btn" onclick="toggleCart()">Close</button>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be displayed here -->
+            </div>
+            <!--Total price in the end-->
+            <div class="cart-total">
+                <h3>Total: $<span id="cart-total">0.00</span></h3>
+            </div>
+            <!--Checkout button-->
+            <button class="checkout-btn" onclick="goToPage('checkout.html')">Checkout</button>
+        </div>
+    </div>
+
+    <!--Slideshow -->
+
+    <div class="slideshow-container" id="slideshow-container">
+        <div class="slideshow-slide fade"><!--Image1 for Slideshow & description-->
+            <img src="summer_clothes.jpg" alt="Image 1">
+            <p id="text1">CLOTHES COLLECTION</p>
+            <p id="description1">
+                Introducing our Ocean-Themed Clothes Variety: Inspired by the depths of the 
+                sea, our collection offers eco-conscious comfort for every occasion. Made from 
+                organic materials, each piece is a stylish statement in support of marine conservation.</p>
+            <button id ="button1"><a href="#category-name">See More> </a></button>
+        </div>
+        <div class="slideshow-slide fade"><!--Image2 for Slideshow & description-->
+            <img src="Necklace.jpg" alt="Image 2">
+            <p id="text2">JEWELRY COLLECTION</p>
+            <p id="description2">
+                Discover our Oceanic Jewels Collection: Each piece draws inspiration from the 
+                mesmerizing depths of the sea. Crafted with care and eco-conscious materials, 
+                our jewelry celebrates the beauty of marine life while advocating for ocean conservation.</p>
+            <button id ="button2"><a href="#category-name">See More> </a></button>    
+        </div>
+        <div class="slideshow-slide fade"><!--Image3 for Slideshow & description-->
+            <img src="books.jpeg" alt="Image 3">
+            <p id="text3">BOOKS/DVD</p>
+            <p id="description3">
+                Dive into a world of entertainment and enlightenment with our 
+                collection of books and DVDs. Explore captivating narratives and thrilling adventures that will transport you to new realms of 
+                imagination and knowledge. Whether you prefer to lose yourself in the pages of a 
+                gripping novel or immerse yourself in the cinematic magic of a blockbuster film, 
+                our curated selection offers something for every taste and interest. Discover new 
+                stories, gain fresh perspectives, and enjoy endless hours of entertainment in the 
+                comfort of your own home.</p>
+            <button id ="button3"><a href="#category-name">See More> </a></button>    
+        </div>
+        <div class="slideshow-slide fade"><!--Image4 for Slideshow & description-->
+            <img src="artwork2.jpg" alt="Image 4">
+            <p id="text4">ARTWORKS</p>
+            <p id="description4">
+                Introducing our Deep Blue Art Collection: Dive into a world of wonder with our
+                underwater-themed artworks, capturing the mesmerizing beauty of marine life.
+                From vibrant coral reefs to graceful sea creatures, each piece invites you to 
+                explore the depths of the ocean from the comfort of your home, while promoting 
+                awareness for marine conservation.</p>
+            <button id ="button4"><a href="#category-name">See More> </a></button>    
+        </div>
+        <div class="slideshow-slide fade"><!--Image5 for Slideshow & description-->
+            <img src="decor.jpg" alt="Image 5">
+            <p id="text5">DECORATIONS</p>
+            <p id="description5">
+                Introducing our Oceanic Decor Collection: Transform your space into a tranquil 
+                underwater oasis with our range of themed decor items. From elegant seashell-adorned
+                mirrors to whimsical coral reef sculptures, each piece brings the mesmerizing beauty
+                of the ocean depths into your home, inspiring a sense of serenity and promoting 
+                appreciation for marine conservation.</p>
+            <button id ="button5"><a href="#category-name">See More></a></button>    
+        </div>
+    </div>
+
+    <br><br>
+    <!--To filter items-->
+    <!--Using select and options-->
+    <label for="categories" id="category-name">Category</label>
+    <select id="categories" name="categories">
+        <option value="all">All</option>
+        <option value="category1">Clothes</option>
+        <option value="category2">Jewelry</option>
+        <option value="category3">Books & DVD</option>
+        <option value="category4">Artworks</option>
+        <option value="category5">Decorations</option>
+    </select>
+    
+    <!--Items of the shop-->
+
+    <form id="all">
+        <div id="items">
+
+            <!--There are 26 items are here with the name and price also some have color and size too-->
+
+            <fieldset class="item category1">
+                <img src="women-tshirt.png" alt="Women T-Shirt">
+                <div class="name-price">
+                    <label class="brand">Women T-Shirt</label><br><br>
+                    <label class="price">$10</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button><br>
+                <label style="margin-left: 30px;">Size</label>
+                <select name="size">
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                </select>
+                <label style="margin-left: 30px;">Color</label>
+                <select name="color">
+                    <option>White</option>
+                    <option>LightGray</option>
+                    <option>SkyBlue</option>
+                </select>
+            </fieldset>
+
+            <fieldset class="item category1">
+                <img src="men-tshirt.png" alt="Men T-Shirt">
+                <div class="name-price">
+                    <label class="brand">Men T-Shirt</label><br><br>
+                    <label class="price">$15</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button><br>
+                <label style="margin-left: 30px;">Size</label>
+                <select name="size">
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                </select>
+                <label style="margin-left: 30px;">Color</label>
+                <select name="color">
+                    <option>White</option>
+                    <option>LightGray</option>
+                    <option>SkyBlue</option>
+                </select>
+            </fieldset>
+            <fieldset class="item category1">
+                <img src="hoodie.png" alt="Hoodie">
+                <div class="name-price">
+                    <label class="brand" style="margin-left: 15px;">Hoodie</label><br><br>
+                    <label class="price">$20</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button><br>
+                <label style="margin-left: 30px;">Size</label>
+                <select name="size">
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                </select>
+                <label style="margin-left: 30px;">Color</label>
+                <select name="color">
+                    <option>White</option>
+                    <option>LightGray</option>
+                    <option>SkyBlue</option>
+                </select>
+            </fieldset>
+
+            <fieldset class="item category1">
+                <img src="shorts.png" alt="Men's Shorts">
+                <div class="name-price">
+                    <label class="brand">Men's Shorts</label><br><br>
+                    <label class="price">$30</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button><br>
+                <label style="margin-left: 30px;">Size</label>
+                <select name="size">
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                </select>
+                <label style="margin-left: 30px;">Color</label>
+                <select name="color">
+                    <option>White</option>
+                    <option>LightGray</option>
+                    <option>SkyBlue</option>
+                </select>
+            </fieldset>
+
+            <fieldset class="item category1">
+                <img src="hat.png" alt="Hat">
+                <div class="name-price">
+                    <label class="brand" style="margin-left: 15px;">Hat</label><br><br>
+                    <label class="price">$8.99</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button><br>
+                <label style="margin-left: 70px;">Color</label>
+                <select name="color">
+                    <option>White</option>
+                    <option>LightGray</option>
+                    <option>SkyBlue</option>
+                </select>
+            </fieldset>
+
+            <fieldset class="item category1">
+                <img src="tote_bag.png" alt="Tote Bag">
+                <div class="name-price">
+                    <label class="brand" style="margin-left: 15px;">Tote Bag</label><br><br>
+                    <label class="price">$15</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button><br>
+                <label style="margin-left: 70px;">Color</label>
+                <select name="color">
+                    <option>White</option>
+                    <option>LightGray</option>
+                    <option>SkyBlue</option>
+                </select>
+            </fieldset>
+
+            <fieldset class="item category2">
+                <img src="shell_necklace.jpg" alt="Shell Necklace">
+                <div class="name-price">
+                    <label class="brand">Shell Necklace</label><br><br>
+                    <label class="price">$5.99</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+            <fieldset class="item category2">
+                <img src="bracelet.jpeg" alt="Bracelet">
+                <div class="name-price">
+                    <label class="brand">Handmade Shell Bracelet</label><br><br>
+                    <label class="price">$9.99</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+            <fieldset class="item category2">
+                <img src="earings.jpg" alt="Earrings">
+                <div class="name-price">
+                    <label class="brand">Handmade Earrings</label><br><br>
+                    <label class="price">$12.99</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+            <fieldset class="item category2">
+                <img src="rasin-necklace.jpg" alt="Rasin Necklace">
+                <div class="name-price">
+                    <label class="brand">Ocean-Themed Rasin Necklace</label><br><br>
+                    <label class="price">$20</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+            <fieldset class="item category2">
+                <img src="bracelt-underwaterthemed.jpg" alt="Underwater-Themed Bracelet">
+                <div class="name-price">
+                    <label class="brand" style="line-height:32px;">Underwater-Themed Bracelet</label><br><br>
+                    <label class="price" style="line-height:32px;">$18.50</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+            <fieldset class="item category3">
+                <img src="marine_biology.jpg" alt="Marine Biology Book">
+                <div class="name-price">
+                    <label class="brand" style="line-height:32px;margin:0">Marine Biology by Peter Castro & Michel E. Huber</label><br><br>
+                    <label class="price" style="line-height:32px;margin:0">$19.39</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+            <fieldset class="item category3">
+                <img src="marine_biology2.jpg" alt="Exploring Marine Life & Ecosystems Book">
+                <div class="name-price">
+                    <label class="brand" style="line-height:10px;margin:0">Exploring Marine Life & Ecosystems by Roger Tucker</label><br><br>
+                    <label class="price" style="line-height:10px;margin:0">$35.42</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+            <fieldset class="item category3">
+                <img src="marine_biology3.jpg" alt="Underwater World DVD">
+                <div class="name-price">
+                    <label class="brand" style="line-height:50px;">Underwater World - DVD</label><br><br>
+                    <label class="price" style="line-height:50px;">$25.50</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+            <fieldset class="item category3">
+                <img src="marine_biology4.jpg" alt="Deep Sea 3D DVD">
+                <div class="name-price">
+                    <label class="brand" style="line-height:47px;">Deep Sea 3D - DVD</label><br><br>
+                    <label class="price" style="line-height:47px;">$25.55</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+            <fieldset class="item category3">
+                <img src="marine_biology5.jpg" alt="A Fascination of Fish Book">
+                <div class="name-price">
+                    <label class="brand">A Fascination of Fish by David C. Powell</label><br><br>
+                    <label class="price">$34</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+            <fieldset class="item category4">
+                <img src="art1.jpg" alt="Underwater Painting">
+                <div class="name-price">
+                    <label class="brand" style="line-height:38px;">Underwater Painting</label><br><br>
+                    <label class="price" style="line-height:38px;">$50</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+            <fieldset class="item category4">
+                <img src="art3.png" alt="Ocean-Themed Painting">
+                <div class="name-price">
+                    <label class="brand" style="line-height:38px;">Ocean-Themed Painting</label><br><br>
+                    <label class="price" style="line-height:38px;">$55.25</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+            <fieldset class="item category4">
+                <img src="art5.png" alt="Ocean-Themed Wall Art">
+                <div class="name-price">
+                    <label class="brand" style="line-height:38px;">Ocean-Themed Wall Art</label><br><br>
+                    <label class="price" style="line-height:38px;">$45</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+            <fieldset class="item category4">
+                <img src="art6.jpeg" alt="Ocean-Themed Artwork">
+                <div class="name-price">
+                    <label class="brand" style="line-height:38px;">Ocean-Themed Artwork</label><br><br>
+                    <label class="price" style="line-height:38px;">$49.50</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+            <fieldset class="item category4">
+                <img src="art-seashell.jpeg" alt="Seashell Wall Art">
+                <div class="name-price">
+                    <label class="brand" style="line-height:38px;">Seashell Wall Art</label><br><br>
+                    <label class="price" style="line-height:38px;">$35.65</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+            <fieldset class="item category5">
+                <img src="clock.jpeg" alt="Sea-Themed Clock Decor">
+                <div class="name-price">
+                    <label class="brand" style="line-height:38px;">Sea-Themed Clock Decor</label><br><br>
+                    <label class="price" style="line-height:38px;">$25.75</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+            <fieldset class="item category5">
+                <img src="decor1.jpeg" alt="Blue Coral Fish Shaped Table Decor">
+                <div class="name-price">
+                    <label class="brand">Blue Coral Fish Shaped Table Decor</label><br><br>
+                    <label class="price">$15.60</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+            <fieldset class="item category5">
+                <img src="decor2.jpeg" alt="Underwater-Themed Table Decor">
+                <div class="name-price">
+                    <label class="brand">Underwater-Themed Table Decor</label><br><br>
+                    <label class="price">$14.26</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+            <fieldset class="item category5">
+                <img src="decor3.jpeg" alt="Underwater-Themed Jar Candle">
+                <div class="name-price">
+                    <label class="brand">Underwater-Themed Jar Candle</label><br><br>
+                    <label class="price">$8.99</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+            <fieldset class="item category5">
+                <img src="decor4.jpeg" alt="Underwater-Themed Wall Decor">
+                <div class="name-price">
+                    <label class="brand">Underwater-Themed Wall Decor</label><br><br>
+                    <label class="price">$6.75</label>
+                </div>
+                <button type="button" class="add-to-cart">Add to Cart</button>
+            </fieldset>
+
+        </div>    
+    </form>
+
+    <!--JavaScript Part-->
+    <script>
+        let cart=[];
+        var slideIndex = 0;
+        showSlides();
+
+        /*Javascript part for slideshow*/
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("slideshow-slide");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].style.display = "block";
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+
+        //Javascript part for filtering
+        document.addEventListener("DOMContentLoaded", function () {
+            const categorySelect = document.getElementById('categories');
+            const items = document.querySelectorAll('.item');
+
+            categorySelect.addEventListener('change', function () {
+                const selectedCategory = this.value;
+
+                // Hide all items
+                items.forEach(item => {
+                    item.style.display = 'none';
+                });
+
+                // Show items corresponding to the selected category
+                if (selectedCategory === 'all') {
+                    items.forEach(item => {
+                        item.style.display = 'inline-block';
+                    });
+                } else {
+                    const selectedItems = document.querySelectorAll(`.item.${selectedCategory}`);
+                    selectedItems.forEach(item => {
+                        item.style.display = 'inline-block';
+                    });
+                }
+            });
+        });
+
+        //To go to the linked page
+        function goToPage(url) {
+            window.location.href = url;
+        }
+
+        //Javascript part of cart
+
+        let cartOpen = false;
+
+        //Viewing the cart window when user click on the icon
+        function toggleCart() {
+            const cartOverlay = document.getElementById('cart-overlay');
+            cartOverlay.style.display = cartOpen ? 'none' : 'block'; 
+            cartOpen = !cartOpen;
+        }
+
+        //Adding items to cart
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            const cartItemCount = document.getElementById('cart-count');
+            const checkoutButton = document.querySelector('.checkout-btn');
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', addToCartClicked);
+            });
+
+            //Adding items to cart
+
+            function addToCartClicked(event) {
+                const button = event.target;
+                const item = button.parentElement;
+                const itemName = item.querySelector('.brand').textContent;
+                const itemPriceText = item.querySelector('.price').textContent;
+                const itemPrice = parseFloat(itemPriceText.replace('$', ''));
+                const itemImage = item.querySelector('img').src;
+                let itemSize = '-';
+                let itemColor = '-';
+
+                const sizeSelect = item.querySelector('select[name="size"]');//size & color will only have value for some items only
+                if (sizeSelect) {
+                    itemSize = sizeSelect.value;
+                }
+
+                const colorSelect = item.querySelector('select[name="color"]');//size & color will only have value for some items only
+                if (colorSelect) {
+                    itemColor = colorSelect.value;
+                }
+                addItemToCart(itemName, itemPrice, itemSize, itemColor, itemImage);//Adding items to cart
+                updateCheckoutButton();//Updating the total
+            }
+
+            //The design of the cart in window(HTML code for how the information will be there)
+            function addItemToCart(name, price, size, color, image) {
+                const cartRow = document.createElement('div');
+                cartRow.classList.add('cart-item');
+                const cartItemContents = `
+                    <table>
+                        <tr>
+                            <td><button class="remove-item"></button></td>
+                            <td><img src="${image}" class="cart-item-image"></td>
+                            <td style="word-break: break-word; max-width: 60px;"><p>${name}</p></td>
+                            <td style="padding-left:10px">${price}</td>
+                            <td><input type="number" class="item-quantity" value="1"></td>
+                            <td>${size}</td>
+                            <td>${color}</td>
+                        </tr> 
+                    </table>
+                    <br>
+                `;
+                cartRow.innerHTML = cartItemContents;
+                cartItems.appendChild(cartRow);
+
+                const removeButton = cartRow.querySelector('.remove-item');
+                removeButton.addEventListener('click', removeCartItem);
+
+                updateCartTotal();//updating the total
+                updateCartItemCount();//Updating the cart items
+            }
+
+            //Removing items from the cart when we clicked the button
+            function removeCartItem(event) {
+                const buttonClicked = event.target;
+                const cartItem = buttonClicked.closest('.cart-item'); 
+                const cartItemsContainer = document.getElementById('cart-items');
+                cartItemsContainer.removeChild(cartItem); 
+
+                updateCartTotal();//Update cart total
+                updateCartItemCount();//Update cart items count
+                updateCheckoutButton();//Update checkout button()
+            }
+
+            function updateCartTotal() {//Function to update the cart total
+                const cartItemContainers = document.querySelectorAll('.cart-item');
+                let total = 0;
+                cartItemContainers.forEach(container => {
+                    const priceElement = container.querySelector('td:nth-child(4)');
+                    const quantityElement = container.querySelector('.item-quantity');
+                    const price = parseFloat(priceElement.textContent);
+                    const quantity = parseInt(quantityElement.value);
+                    total += price * quantity;
+                });
+                cartTotal.textContent = total.toFixed(2);
+            }
+
+            function updateCartItemCount() {//Function to update the utem count
+                const cartItemContainers = document.querySelectorAll('.cart-item');
+                cartItemCount.textContent = cartItemContainers.length;
+            }
+
+            function updateCheckoutButton() {//Function to update the checkout button
+                if (cartItems.children.length === 0) {
+                    checkoutButton.disabled = true; // Disable the checkout button
+                } else {
+                    checkoutButton.disabled = false; // Enable the checkout button
+                }
+            }
+            checkoutButton.addEventListener('click', function() {//Checking if the customer is going through check ,when there isn't anything in the cart
+                if (cartItems.children.length === 0) {
+                    alert('There are no items in the cart. Please add items before proceeding to checkout.');
+                    goToPage('shop.html');
+                    return false; 
+                }
+            });
+        });
+
+    </script> 
+    <!--Footer for the shop page-->   
+    <footer>
+
+        <div class="footerContainer">
+            <div class="socialIcons">
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
+            </div>
+
+            <div class="footernav">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                    <li><a href="team.html">About us</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="copywrite">
+            <p> &copy;2024 <span class="designer">Marinelife</span></p>
+
+        </div>
+
+    </footer>    
+</body>
+</html>

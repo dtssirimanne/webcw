@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Splash Screen</title>
+        <style>
+            /*Styling sheet for Splash Screen*/
+            video { 
+                position: fixed;
+                top: 0;
+                left: 0;
+                min-width: 100%;
+                min-height: 100%;
+                z-index:-100;
+            }
+
+            p,h1{
+                color:	#0c2340;
+                padding: 0%;
+                text-align: center;
+                position: relative;
+                top: 40%;
+            }
+            h1{
+                font-size: 120px;
+                font-family:fantasy;
+                line-height: 0%;
+            }
+            #font{
+                font-family:  'Segoe UI';
+                font-size: 140px;
+                color: #013a63;
+            }
+            #mission{
+                line-height: 0%;
+                font-size: 40px;
+                color: #151e3d;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+            #members{
+                padding-top: 125px;
+                font-size: 20px;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans',sans-serif;
+            }
+            .loader {
+                border: 6px solid #f3f3f3; 
+                border-top: 6px solid #0c2340; 
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                animation: spin 2s linear infinite;
+                margin-top: 120px;
+                margin-left: 49%;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
+    </head>
+    <body>
+
+        <!--Background Video-->
+
+        <video autoplay muted loop>
+            <source src="water.mp4" type="video/mp4">
+        </video>
+        
+        <div class="background"></div>
+        <!--Website Name & Mission-->
+
+        <h1 id="title">MARINE<span id="font"><i>LIFE</i></span></h1>
+
+        <p id="mission">Explore The Wonders Of Marine Life</p>
+
+        <p class = "loader"></p>
+
+        <!--Names of the members-->
+        <p id="members"><b>
+            @Chenuthi Karunarathne&nbsp;&nbsp;&nbsp;
+            @Sehathna Lugoda&nbsp;&nbsp;&nbsp;
+            @Thanuri De Silva&nbsp;&nbsp;&nbsp;
+            @Tharushika Sirimanne&nbsp;&nbsp;&nbsp;
+        </b></p>
+
+        <script>
+            // Redirect to main.html after 4 seconds
+            setTimeout(function() {
+                window.location.href = 'home.html';
+            }, 4000);
+        </script>
+    </body>
+</html>

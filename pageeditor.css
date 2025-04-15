@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: url(background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.homepage{
+    margin-top: 3.5rem;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 1090px;
+    padding: 0 3rem;
+}
+
+.homepage a{
+    color: #0f1431;
+    font-size: 17px;
+}
+
+.homepage a:hover{
+    color: rgb(31, 143, 224);
+    text-decoration: none;
+}
+
+
+h1{
+    font-size: 49px;
+    padding-top: 2%;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 7px;
+    color: rgb(40, 54, 126);
+    margin-bottom: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#task1{
+    margin-top: 15px;
+}
+
+h2 {
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    margin-top: -10px;
+}
+
+h3{
+    padding-bottom: 1%;
+    font-size: 24px;
+    color: #fff;
+    margin-top: 5px;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.contain{
+    display: flex;
+    align-items: center;
+}
+
+.myimage{
+    margin-left: 150px;
+    flex: 0 0 auto;
+    margin-top: 15px;
+}
+
+.myimage img{
+    width: 320px;
+    height: 420px;
+    border-radius: 11px;
+}
+
+
+text {
+    flex: 1;
+    text-align: left;
+    padding-left: 30px;
+    font-family:'Times New Roman', Times, serif;
+}
+
+
+.text p {
+    font-family:'Times New Roman', Times, serif;
+    font-size: 22px;
+    line-height: 50px;
+    text-align: justify;
+    padding-left: 70px;
+    font-weight: bold;
+    color: #06051a;
+}
+
+p{
+    font-size: 22px;
+    padding-top: 5px;
+    padding-bottom: 3%;
+    font-family:'Times New Roman', Times, serif;
+}
+
+#a{
+    color: #fff;
+    font-size: 20px;
+    padding-top: 50px;   
+    text-align: center;
+}
+
+#a:hover{
+    color: rgb(9, 25, 167);
+}
+
+.banner {
+    text-align: center;
+}
+

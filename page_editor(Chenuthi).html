@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Profile</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <style>
+
+            /*Styling the styling part*/
+            *{
+                margin: 0;
+                padding: 0;
+            }
+
+            body{
+                background-image:linear-gradient(to right, rgba(106, 228, 244, 0.545),rgb(46, 189, 246),rgba(9, 33, 130, 0.547));
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                
+            }
+
+            .homepage{
+                margin-top: 3.5rem;
+                text-align: center;
+                margin: 0 auto;
+                max-width: 1090px;
+                padding: 0 3rem;
+            }
+
+            .homepage a{
+                color: #0f1431;
+                font-size: 17px;
+            }
+
+            .homepage a:hover{
+                color: rgb(31, 143, 224);
+                text-decoration: none;
+            }
+            hr{
+                color:black;
+            }
+
+
+            h1{
+                font-size: 56px;
+                padding-top: 2%;
+                font-weight: bold;
+                text-align: center;
+                letter-spacing: 7px;
+                color: black;
+                margin-bottom: 15px;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+
+            #task1{
+                margin-top: 15px;
+            }
+
+            h2 {
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-weight: bold;
+                color: black;
+                font-size: 30px;
+                margin-top: -10px;
+            }
+
+            h3{
+                font-weight: bold;
+                padding-bottom: 1%;
+                font-size: 24px;
+                color: black;
+                margin-top: 5px;
+                font-family:Georgia, 'Times New Roman', Times, serif;
+            }
+
+            .contain{
+                display: flex;
+                align-items: center;
+            }
+
+            .myimage{
+                margin-left: 150px;
+                flex: 0 0 auto;
+                margin-top: 15px;
+            }
+
+            .myimage img{
+                width: 320px;
+                height: 420px;
+            }
+
+
+            text {
+                flex: 1;
+                line-height: 20px;
+                text-align: left;
+                padding-left: 30px;
+                font-family:Georgia, 'Times New Roman', Times, serif;
+            }
+
+
+            .text p {
+                font-family:Georgia, 'Times New Roman', Times, serif;
+                font-size: 22px;
+                line-height: 50px;
+                text-align: justify;
+                padding-left: 70px;
+                font-weight: bold;
+                color: #06051a;
+            }
+
+            p{
+                font-size: 22px;
+                padding-top: 5px;
+                padding-bottom: 3%;
+                font-family:'Times New Roman', Times, serif;
+            }
+
+            footer{
+                margin-top: 20px;
+                color: white;
+                background-color: rgb(27, 44, 83);
+                padding: 20px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .footer content{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                
+            }
+
+            #a{
+                color: #fff;
+                font-size: 20px;
+                padding-top: 50px;
+            }
+
+            #a:hover{
+                color: rgb(9, 25, 167);
+            }
+
+            .footer-links{
+                list-style: none;
+                margin-top: 10px;
+                padding: 0%;
+            }
+
+            .footer-links li {
+                display: inline-block;
+                margin: 0 10px;
+                margin-top: 5px;
+                font-size: 18px;
+            }
+            
+            .footer-links li a {
+                color: #fff;
+                text-decoration: none;
+            }
+
+            .footer-links li a:hover{
+                color: blue;
+            }
+
+            #rights{
+                margin-top: 30px;
+            }
+            footer{
+                background-image: linear-gradient(#00BFFF, #4169E1);
+                margin-top: 30px;
+            }    
+
+            .footerContainer {
+                width: 100%;
+                padding: 70px 30px 20px;
+            }
+
+            .socialIcons{
+                display: flex;
+                justify-content: center;
+            }
+
+            .socialIcons a {
+                text-decoration: none;
+                padding: 10px;
+                background-color: white;
+                margin: 10px;
+                border-radius: 50% ;
+            }
+
+            .socialIcons a i {
+                font-size: 2em;
+                color: black;
+                opacity: 0.9;
+            }
+
+            .socialIcons a:hover{
+                background-color: #111;
+                transition: 0.5s;
+            }
+
+            .socialIcons a:hover i {
+                color: white;
+                transition: 0.5s;
+
+            }
+
+            .footernav{
+                margin: 30px 0;
+
+            }
+
+            .footernav ul{
+                display: flex;
+                justify-content: center;
+                list-style-type: none;
+
+            }
+
+            .footernav ul li a{
+                color: white;
+                margin: 20px;
+                text-decoration: none;
+                font-size: 20px;
+                opacity: 0.7;
+                transition: 0.5s;
+            }
+
+            .footernav ul li a:hover{
+                opacity: 3;
+                color: rgba(41, 39, 39, 0.889);
+                transition: 0.5s;
+            }
+
+            .copywrite{
+                margin-bottom: -20px;
+                margin-top: 20px;
+                margin-left: -20px;
+                background-color:#000 ;
+                width: 100%;
+                padding: 20px;
+                text-align: center;
+
+            }
+
+            .copywrite p{
+                color: white;
+
+            }
+
+            .designer{
+
+                opacity: 0.7;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: 400;
+                margin: 0px 5px;
+
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <!--Page editor page-->
+        <div class="homepage">
+            <h1>Page Editor</h1>
+            <div class="contain">
+                <div class="myimage"><!--Adding a picture of myself-->
+                    <img src="myimage.jpg" alt="Chenuthi Karunarathne">
+                </div>
+
+                <div class="text"><!--Adding basic information about myself-->
+                    <p>Name: Chenuthi Karunarathne</p>
+                    <p>Role: Student 1</p>
+                    <p>IIT ID: 20220939</p>
+                    <p>UOW No: w2052082</p>
+                </div>
+            </div>
+            <br>
+            <hr><br>
+
+            <!--Displaying the places that I have studied or studying-->
+    
+            <h2> Education</h2>
+            <p>Informatics Institute of Technology (University of Westminster, UK)</p>
+            <hr><br><br>
+
+            <!--Describing the tasks that I was assigned and linking the assigned tasks html pages-->
+
+            <h2>Tasks</h2>
+            <h3 id="task1">Splash Screen</h3>
+            <p style="padding-bottom: 0%;">Designed and Implemeted the Splash Screen, <br>This page will act the starting of the Website.After 4s It will automatically come to Main page</p><br>
+            <a href="splash.html" style="font-weight: bold;">Link to MarineLife Splash Screen</a><br><br>
+            <br>
+            
+            <h3>Content Page</h3>
+            <p>Desinged and Implemeted the content page on MarineLife, <br>Here, the customer can get to know about the information of Iconic Marine Species.</p>
+            <a href="content.html" style="font-weight: bold;">Link to MarineLife Content page</a><br><br>
+            <br>
+
+            <h3>Shop</h3>
+            <p>Desinged and Implemeted shop, <br>In shop,the user can buy any item they like as fund for the foundation</p>
+            <a href="shop.html" style="font-weight: bold;">Link to the MarineLife Shop</a>
+        </div>
+
+        <!--footer-->
+        <footer>
+
+            <div class="footerContainer">
+                <div class="socialIcons">
+                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter"></i></a>
+                    <a href=""><i class="fa-brands fa-youtube"></i></a>
+                </div>
+    
+                <div class="footernav">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                        <li><a href="team.html">About us</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+    
+                </div>
+    
+            </div>
+    
+            <div class="copywrite">
+                <p> &copy;2024 <span class="designer">Marinelife</span></p>
+    
+            </div>
+    
+        </footer>    
+    </body>
+</html>
